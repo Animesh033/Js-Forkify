@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation of required things</title>
+</head>
+<body>
+    <p>Q. How to install webpack server?</p>
+    <p>Ans- Using "npm install webpack-dev-server --save-dev" command and 
+        putting ("start": "webpack-dev-server --mode development --open") inside Scripts in package.json file as 
+        shown below:
+        <br>
+        "scripts": {
+            "dev": "webpack --mode development",
+            "build": "webpack --mode production",
+            "start": "webpack-dev-server --mode development --open"
+          },
+          <br>
+          and 
+          devServer: {
+                contentBase: './dist'
+            },
+            in  webpack.config.js file.
+          and to start sever use this command - "npm run start".
+    </p>
+    <p>Q. How to install HTML webpack Plugin?</p>
+    <p>Ans- Using "npm install html-webpack-plugin --save-dev" command and 
+        putting ("start": "webpack-dev-server --mode development --open") inside Scripts in webpack.config.js file as 
+        shown below:
+        <br>
+        plugins: [
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                template: './src/index.html'
+            })
+        ],</p>
+
+        <p>Required packages - </p>
+        <p>Installing multiple packages(Here 3 packages - 1. babel core 2. babel preset env 3. babel loader) in single commad - 
+            "npm install babel-core babel-preset-env babel-loader --save-dev"<br>
+            Add this -
+            module: {
+                rules: [
+                    {
+                        test: /\.js$/, //means test all file which ends with .js
+                        exclude: /node_modules/, // exclude this folder while testing file with .js
+                        use: {
+                            loader: 'babel-loader'
+                        }
+                    }
+                ]
+            }
+
+            in webpack.config.js file.
+        </p>
+        <p>Babel Pollyfill Package - <br>
+            Installing using - npm install babel-polyfill --save     
+            This is used for implementing code like promises which is not in ES5 and codes that can not be converted with babel loaders.
+        </p>
+
+        <p>To install fractional package - npm install fractional --save]</p>
+</body>
+</html>
